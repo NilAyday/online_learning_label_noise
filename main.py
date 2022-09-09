@@ -29,7 +29,7 @@ with open(file, 'rb') as handle:
 t0 = time.time()
 history=training_online.train(model, optimizer, loss, dataloader_train, dataloader_test, num_iter, device=device)
 print("Training time:", time.time()-t0)
-print(historys['true_train_acc'][-1])
+print(history['true_train_acc'][-1])
 
 file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_b_{}.pickle'.format(num_iter))
 with open(file, 'wb') as handle:
