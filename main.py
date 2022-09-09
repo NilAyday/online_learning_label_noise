@@ -11,7 +11,7 @@ import os
 import pickle
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
-num_iter=2000
+num_iter=4500
 lr=0.001
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
