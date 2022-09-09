@@ -98,6 +98,9 @@ def get_Jacobian_svd(model, dl_train):
 
 class MyDataset(Dataset):
     def __init__(self, data, targets):
+        self._dataset_kind = None
+        self.multiprocessing_context = None
+        
         self.data = data
         #self.targets = torch.LongTensor(targets)
         #self.targets = targets.clone().detach().requires_grad_(True)
@@ -115,6 +118,9 @@ class MyDataset(Dataset):
 
 class MyCorruptedDataset(Dataset):
     def __init__(self, data, targets, alpha=0.3, num_classes=2):
+        self._dataset_kind = None
+        self.multiprocessing_context = None
+        
         self.data = data
         #self.targets = torch.LongTensor(targets)
         self.targets = torch.tensor(targets, dtype=torch.long)
