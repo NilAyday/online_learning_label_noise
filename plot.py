@@ -17,7 +17,7 @@ plt.plot(x, np.ones(len(s['train_acc']))-s['true_train_acc'], label="Train Error
 plt.ylabel("Classification error")
 plt.xlabel("Number of samples")
 plt.legend()
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/fig_b_1')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/fig_a')
 plt.savefig(file+".png")
 plt.cla()
 
