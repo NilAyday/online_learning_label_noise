@@ -28,10 +28,8 @@ with open(file, 'rb') as handle:
 
 history=training_online.train(model, optimizer, loss, dataloader_train, dataloader_test, num_iter, device=device)
 
-print(history["val_acc"])
 
 file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_b_{}.pickle'.format(num_iter))
 with open(file, 'wb') as handle:
     pickle.dump(history, handle, protocol=pickle.HIGHEST_PROTOCOL)
-#print(history['train_acc'])
-#print(history['true_train_acc'])
+
