@@ -20,4 +20,4 @@ plt.legend()
 file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/fig_b_1')
 plt.savefig(file+".png")
 plt.cla()
-print(s['true_train_acc'][-1])
+
