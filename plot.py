@@ -11,7 +11,7 @@ file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_a_1.p
 with open(file, 'rb') as handle:
     s = pickle.load(handle)
 
-'''
+
 x=range(50,len(s['train_acc']))
 plt.plot(x, np.ones(len(s['train_acc'])-50)-s['train_acc'][50:], label="Train Error",color="darkorange")
 plt.plot(x, np.ones(len(s['train_acc'])-50)-s['true_train_acc'][50:], label="Train Error wrt True Labels",color="royalblue")
@@ -21,6 +21,7 @@ x=range(len(s['train_acc']))
 plt.plot(x, np.ones(len(s['train_acc']))-s['train_acc'], label="Train Error",color="darkorange")
 plt.plot(x, np.ones(len(s['train_acc']))-s['true_train_acc'], label="Train Error wrt True Labels",color="royalblue")
 plt.plot(x, np.ones(len(s['val_acc']))-s['val_acc'], label="Test Error",color="g")
+'''
 plt.ylabel("Classification error")
 plt.xlabel("Number of samples")
 plt.legend()
