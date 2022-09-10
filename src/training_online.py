@@ -43,7 +43,7 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
             y = batch[1].to(device)
             yhat = model(x)
             
-  
+            '''
             if len(batch)==3:
                 keep_track=True
                 y_true = batch[2].to(device)
@@ -58,17 +58,16 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
                         loss_cor=loss.cpu().detach().numpy()
                         history['loss'].append(loss_cor)
             
-        
+                '''
             loss = loss_fn(yhat, y)
             
             loss.backward()
             optimizer.step()
 
             running_loss+=loss
-            num_train_correct += (torch.max(yhat, 1)[1] == y).sum().item()
-            if keep_track:
-                num_train_correct_true += (torch.max(yhat, 1)[1] == y_true).sum().item()
-            num_train_examples += x.shape[0]
+        num_train_correct += (torch.max(yhat, 1)[1] == y).sum().item()
+        num_train_correct_true += (torch.max(yhat, 1)[1] == y_true).sum().item()
+        num_train_examples += x.shape[0]
 
 
         train_acc = num_train_correct / num_train_examples
