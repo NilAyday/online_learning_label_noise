@@ -31,7 +31,7 @@ center0=util.sphere(center=np.zeros(dim),radius=1,mode="SURFACE",size=dim)
 for i in range(int(num_samples/2)):
     samples_train.append(np.array(util.sphere(center=center0,radius=0.5,mode="INTERIOR",size=dim)))
     labels_train.append(int(0))
-    if i<num_samples/4:
+    if i<num_samples/5:
         samples_test.append(np.array(util.sphere(center=center0,radius=0.5,mode="INTERIOR",size=dim)))
         labels_test.append(int(0))
 
@@ -42,7 +42,7 @@ while(np.linalg.norm(center0-center1)<1):
 for i in range(int(num_samples/2),num_samples):
     samples_train.append(np.array(util.sphere(center=center1,radius=0.5,mode="INTERIOR",size=dim)))
     labels_train.append(int(1))
-    if i<int(num_samples/2)+num_samples/4:
+    if i<int(num_samples/2)+num_samples/5:
         samples_test.append(np.array(util.sphere(center=center1,radius=0.5,mode="INTERIOR",size=dim)))
         labels_test.append(int(1))
 
