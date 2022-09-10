@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 
 dim=20
-num_samples=3200
+num_samples=400
 batch_size=32
 #batch_size=100
 alpha=0.3
@@ -59,7 +59,8 @@ random.shuffle(indices_test)
 samples_test=samples_test[indices_test]
 labels_test=labels_test[indices_test]
 
-
+print(labels_test)
+print(labels_train)
 tensor_x = torch.Tensor(samples_train) # transform to torch tensor
 tensor_y = torch.Tensor(labels_train)
 ds_train = MyCorruptedDataset(tensor_x,tensor_y) # create your datset
