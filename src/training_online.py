@@ -72,6 +72,21 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
         train_acc = num_train_correct / num_train_examples
         true_train_acc = num_train_correct_true / num_train_examples
         
+        num_val_correct  = 0
+        num_val_examples = 0
+        for batch in val_dl:
+            x = batch[0].to(device)
+            y = batch[1].to(device)
+            yhat = model(x)
+            loss = loss_fn(yhat, y)
+
+        num_val_correct += (torch.max(yhat, 1)[1] == y).sum().item()
+        num_val_examples += y.shape[0]
+
+        
+        val_acc = num_val_correct / num_val_examples   
+        history['val_acc'].append(val_acc)
+        
         print("{}. batch, train acc: {}, true train acc: {}".format(counter,train_acc,true_train_acc))
         model.eval()
         
