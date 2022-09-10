@@ -63,10 +63,10 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
             optimizer.step()
 
             running_loss+=loss
-            num_train_correct += (torch.max(yhat, 1)[1] == y).sum().item()
-            if keep_track:
-                num_train_correct_true += (torch.max(yhat, 1)[1] == y_true).sum().item()
-            num_train_examples += x.shape[0]
+        num_train_correct += (torch.max(yhat, 1)[1] == y).sum().item()
+        if keep_track:
+            num_train_correct_true += (torch.max(yhat, 1)[1] == y_true).sum().item()
+        num_train_examples += x.shape[0]
 
 
         train_acc = num_train_correct / num_train_examples
