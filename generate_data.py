@@ -31,7 +31,7 @@ center0=util.sphere(center=np.zeros(dim),radius=1,mode="SURFACE",size=dim)
 for i in range(int(num_samples/2)):
     samples_train.append(np.array(util.sphere(center=center0,radius=0.5,mode="INTERIOR",size=dim)))
     labels_train.append(int(0))
-    if i<num_samples/5:
+    if i<num_samples/4:
         samples_test.append(np.array(util.sphere(center=center0,radius=0.5,mode="INTERIOR",size=dim)))
         labels_test.append(int(0))
 
@@ -42,7 +42,7 @@ while(np.linalg.norm(center0-center1)<1):
 for i in range(int(num_samples/2),num_samples):
     samples_train.append(np.array(util.sphere(center=center1,radius=0.5,mode="INTERIOR",size=dim)))
     labels_train.append(int(1))
-    if i<int(num_samples/2)+num_samples/5:
+    if i<int(num_samples/2)+num_samples/4:
         samples_test.append(np.array(util.sphere(center=center1,radius=0.5,mode="INTERIOR",size=dim)))
         labels_test.append(int(1))
 
@@ -68,7 +68,7 @@ tensor_y = torch.Tensor(labels_test)
 ds_test = MyDataset(tensor_x,tensor_y)
 
 dataloader_train = torch.utils.data.DataLoader(ds_train, batch_size=1, shuffle=True)
-dataset_test = torch.utils.data.Subset(ds_test, indices_test[:900])
+dataset_test = torch.utils.data.Subset(ds_test, indices_test[:])
 dataloader_test = torch.utils.data.DataLoader(dataset_test, batch_size=1, shuffle=False)
 
 dl_single=[dataloader_train,dataloader_test]
@@ -78,7 +78,7 @@ with open(file, 'wb') as handle:
     pickle.dump(dl_single, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 dataloader_train = torch.utils.data.DataLoader(ds_train, batch_size=batch_size, shuffle=True)
-dataset_test = torch.utils.data.Subset(ds_test, indices_test[:900])
+dataset_test = torch.utils.data.Subset(ds_test, indices_test[:])
 dataloader_test = torch.utils.data.DataLoader(dataset_test, batch_size=1, shuffle=False)
 
 dl_batch=[dataloader_train,dataloader_test]

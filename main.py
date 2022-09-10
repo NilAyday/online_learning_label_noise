@@ -10,8 +10,9 @@ import torch.nn as nn
 import os
 import pickle
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
+import time
 
-num_iter=2000
+num_iter=4500
 lr=0.001
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -25,13 +26,12 @@ with open(file, 'rb') as handle:
 
 
 
-
+t0 = time.time()
 history=training_online.train(model, optimizer, loss, dataloader_train, dataloader_test, num_iter, device=device)
-
-print(history["val_acc"])
+print("Training time:", time.time()-t0)
+print(history['true_train_acc'][-1])
 
 file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_b_{}.pickle'.format(num_iter))
 with open(file, 'wb') as handle:
     pickle.dump(history, handle, protocol=pickle.HIGHEST_PROTOCOL)
-#print(history['train_acc'])
-#print(history['true_train_acc'])
+

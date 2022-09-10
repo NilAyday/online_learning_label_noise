@@ -7,7 +7,7 @@ import torch
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_b_1.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_b_4500.pickle')
 with open(file, 'rb') as handle:
     s = pickle.load(handle)
 
@@ -17,7 +17,7 @@ plt.plot(x, np.ones(len(s['train_acc']))-s['true_train_acc'], label="Train Error
 plt.ylabel("Classification error")
 plt.xlabel("Number of samples")
 plt.legend()
-plt.show()
-#file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/fig5a')
-#plt.savefig(file+".png")
-#plt.cla()
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/fig_b_4500')
+plt.savefig(file+".png")
+plt.cla()
+

@@ -90,27 +90,10 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
         print("{}. batch, train acc: {}, true train acc: {}".format(counter,train_acc,true_train_acc))
         model.eval()
         
-        
-
-        #pbar.set_description('train acc: %5.2f, true train acc: %5.2f, val acc: %5.2f' % (train_acc, true_train_acc, val_acc))
 
         history['train_acc'].append(train_acc)
         history['true_train_acc'].append(true_train_acc)
-        #history['val_acc'].append(val_acc)
         history['sq_loss'].append(math.sqrt(running_loss))
 
-    num_val_correct  = 0
-    num_val_examples = 0
-    for batch in val_dl:
-        x = batch[0].to(device)
-        y = batch[1].to(device)
-        yhat = model(x)
-        loss = loss_fn(yhat, y)
-
-        num_val_correct += (torch.max(yhat, 1)[1] == y).sum().item()
-        num_val_examples += y.shape[0]
-
-    val_acc = num_val_correct / num_val_examples   
-    history['val_acc'].append(val_acc)
 
     return history
