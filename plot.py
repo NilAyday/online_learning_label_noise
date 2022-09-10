@@ -14,6 +14,7 @@ with open(file, 'rb') as handle:
 x=range(len(s['train_acc']))
 plt.plot(x, np.ones(len(s['train_acc']))-s['train_acc'], label="Train Error",color="darkorange")
 plt.plot(x, np.ones(len(s['train_acc']))-s['true_train_acc'], label="Train Error wrt True Labels",color="royalblue")
+plt.plot(x, np.ones(len(s['val_acc']))-s['val_acc'], label="Test Error",color="lightgreen")
 plt.ylabel("Classification error")
 plt.xlabel("Number of samples")
 plt.legend()
