@@ -7,7 +7,7 @@ import torch
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_a.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_a_1.pickle')
 with open(file, 'rb') as handle:
     s = pickle.load(handle)
 
