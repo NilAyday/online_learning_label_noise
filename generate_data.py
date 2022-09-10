@@ -61,6 +61,8 @@ labels_test=labels_test[indices_test]
 
 print(len(labels_test))
 print(len(labels_train))
+print(np.count_nonzero(labels_test==0))
+print(np.count_nonzero(labels_train==0))
 tensor_x = torch.Tensor(samples_train) # transform to torch tensor
 tensor_y = torch.Tensor(labels_train)
 ds_train = MyCorruptedDataset(tensor_x,tensor_y) # create your datset
