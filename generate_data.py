@@ -59,8 +59,8 @@ random.shuffle(indices_test)
 samples_test=samples_test[indices_test]
 labels_test=labels_test[indices_test]
 
-print(labels_test)
-print(labels_train)
+print(len(labels_test))
+print(len(labels_train))
 tensor_x = torch.Tensor(samples_train) # transform to torch tensor
 tensor_y = torch.Tensor(labels_train)
 ds_train = MyCorruptedDataset(tensor_x,tensor_y) # create your datset
