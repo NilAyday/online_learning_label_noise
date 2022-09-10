@@ -11,7 +11,7 @@ file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/online_b_80.
 with open(file, 'rb') as handle:
     s = pickle.load(handle)
 
-x=range(50,len(s['train_acc'])-50)
+x=range(50,len(s['train_acc']))
 plt.plot(x, np.ones(len(s['train_acc'])-50)-s['train_acc'][50:], label="Train Error",color="darkorange")
 plt.plot(x, np.ones(len(s['train_acc'])-50)-s['true_train_acc'][50:], label="Train Error wrt True Labels",color="royalblue")
 plt.plot(x, np.ones(len(s['val_acc'])-50)-s['val_acc'][50:], label="Test Error",color="lightgreen")
