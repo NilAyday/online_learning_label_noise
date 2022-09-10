@@ -20,7 +20,7 @@ model = Net()
 optimizer = torch.optim.SGD(model.parameters(), lr = lr)
 loss = torch.nn.CrossEntropyLoss()
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_single.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_batch.pickle')
 with open(file, 'rb') as handle:
     [dataloader_train,dataloader_test] = pickle.load(handle)
 
