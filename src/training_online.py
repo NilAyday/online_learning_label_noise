@@ -87,7 +87,7 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
         val_acc = num_val_correct / num_val_examples   
         history['val_acc'].append(val_acc)
         
-        print("{}. batch, train acc: {}, true train acc: {}".format(counter,train_acc,true_train_acc))
+        print("{}. batch, train acc: {}, true train acc: {}, test acc: {}".format(counter,train_acc,true_train_acc,val_acc))
         model.eval()
         
 
