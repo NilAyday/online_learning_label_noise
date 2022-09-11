@@ -12,7 +12,7 @@ import pickle
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 import time
 
-num_iter=4500
+num_iter=45000
 lr=0.001
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -20,7 +20,7 @@ model = Net()
 optimizer = torch.optim.SGD(model.parameters(), lr = lr)
 loss = torch.nn.CrossEntropyLoss()
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_single.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_batch.pickle')
 with open(file, 'rb') as handle:
     [dataloader_train,dataloader_test] = pickle.load(handle)
 
