@@ -4,7 +4,7 @@ from torch.utils.data import TensorDataset, DataLoader, Dataset
 import numpy as np
 from typing import Union
 import random
-from src import util,perturbed_dataloader, training_online
+from src import util,perturbed_dataloader, training_online, training
 from src.util import Net
 import torch.nn as nn
 import os
@@ -12,7 +12,7 @@ import pickle
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 import time
 
-num_iter=400000
+num_iter=400
 lr=0.001
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -27,7 +27,7 @@ with open(file, 'rb') as handle:
 
 
 t0 = time.time()
-history=training_online.train(model, optimizer, loss, dataloader_train, dataloader_test, num_iter, device=device)
+history=training.train(model, optimizer, loss, dataloader_train, dataloader_test, num_iter, device=device)
 print("Training time:", time.time()-t0)
 print(history['true_train_acc'][-1])
 
