@@ -29,7 +29,7 @@ dataloader_test = torch.utils.data.DataLoader(dataset_test, batch_size=1, shuffl
 
 dl_batch=[dataloader_train,dataloader_test]
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_CIFAR10.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_clean_CIFAR10.pickle')
 with open(file, 'wb') as handle:
     pickle.dump(dl_batch, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
