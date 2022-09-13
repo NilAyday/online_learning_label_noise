@@ -89,7 +89,7 @@ def initialize_weights(m):
         nn.init.constant_(m.bias.data, 0)
 
 num_epoch=400
-lr=0.001
+lr=0.01
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
