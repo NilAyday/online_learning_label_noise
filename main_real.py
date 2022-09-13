@@ -98,7 +98,7 @@ model=  ResNet(ResidualBlock, [2, 2, 2]).to(device)
 optimizer = torch.optim.SGD(model.parameters(), lr = lr)
 loss = torch.nn.CrossEntropyLoss()
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_CIFAR10.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_clean_CIFAR10.pickle')
 with open(file, 'rb') as handle:
     [dataloader_train,dataloader_test] = pickle.load(handle)
 
