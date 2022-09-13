@@ -11,6 +11,7 @@ import os
 import pickle
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
+#model: https://github.com/kuangliu/pytorch-cifar
 def conv3x3(in_channels, out_channels, stride=1):
     return nn.Conv2d(in_channels, out_channels, kernel_size=3, 
                      stride=stride, padding=1, bias=False)
@@ -88,7 +89,7 @@ def initialize_weights(m):
         nn.init.normal_(m.weight.data)
         nn.init.constant_(m.bias.data, 0)
 
-num_epoch=400
+num_epoch=200
 lr=0.01
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
