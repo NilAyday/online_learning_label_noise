@@ -27,8 +27,7 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
     num_train_correct = 0
     num_train_correct_true = 0
     num_train_examples = 0
-    num_val_correct  = 0
-    num_val_examples = 0
+    
     running_loss = 0.0
     pbar = tqdm(range(1, epochs+1))
     counter=0
@@ -74,6 +73,8 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
         train_acc = num_train_correct / num_train_examples
         true_train_acc = num_train_correct_true / num_train_examples
         
+        num_val_correct  = 0
+        num_val_examples = 0
        
         for batch in val_dl:
             x = batch[0].to(device)
