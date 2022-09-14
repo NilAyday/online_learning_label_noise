@@ -108,6 +108,6 @@ with open(file, 'rb') as handle:
 
 history=training.train(model, optimizer, loss, dataloader_train, dataloader_test, num_epoch, device=device)
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/online_small.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/regular_small.pickle')
 with open(file, 'wb') as handle:
     pickle.dump(history, handle, protocol=pickle.HIGHEST_PROTOCOL)
