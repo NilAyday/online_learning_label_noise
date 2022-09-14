@@ -76,6 +76,8 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
         true_train_acc = num_train_correct_true / num_train_examples
        
        
+        num_val_correct  = 0
+        num_val_examples = 0
         for batch in val_dl:
             x = batch[0].to(device)
             y = batch[1].to(device)
