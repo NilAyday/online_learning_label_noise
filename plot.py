@@ -23,7 +23,7 @@ plt.plot(x, np.ones(len(s['train_acc']))-s['true_train_acc'], label="Train Error
 plt.plot(x, np.ones(len(s['val_acc']))-s['val_acc'], label="Test Error",color="g")
 
 plt.ylabel("Classification error")
-plt.xlabel("Number of samples")
+plt.xlabel("Number of Epochs")
 plt.legend()
 file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/regular')
 plt.savefig(file+".png")
