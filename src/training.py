@@ -53,7 +53,7 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
 
             running_loss+=loss
             num_train_correct += (torch.max(yhat, 1)[1] == y).sum().item()
-            #num_train_correct_true += (torch.max(yhat, 1)[1] == y_true).sum().item()
+            num_train_correct_true += (torch.max(yhat, 1)[1] == y_true).sum().item()
             num_train_examples += x.shape[0]
 
      
