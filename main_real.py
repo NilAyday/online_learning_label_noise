@@ -106,7 +106,7 @@ with open(file, 'rb') as handle:
 
 
 
-history=training_online.train(model, optimizer, loss, dataloader_train, dataloader_test, num_epoch, device=device)
+history=training.train(model, optimizer, loss, dataloader_train, dataloader_test, num_epoch, device=device)
 
 file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/regular_batch.pickle')
 with open(file, 'wb') as handle:
