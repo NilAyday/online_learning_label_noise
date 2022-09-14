@@ -22,7 +22,7 @@ class PerturbedDataset(torch.utils.data.DataLoader):
                 label = self.dataset[i][1]
                 self.perturbed_labels.append(random.choice(list(s-{label})))
         else:
-            self.perturbed_labels = [random.randint(0,num_classes-1) for _ in self.perturbed_indices]
+            self.perturbed_labels = [random.choice([0,1,8]) for _ in self.perturbed_indices]
 
     def __getitem__(self, i):
         if i < len(self.perturbed_indices):
