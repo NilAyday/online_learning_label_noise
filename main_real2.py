@@ -33,12 +33,12 @@ class LeNet(nn.Module):
         x = self.linear2(x)
         return x
 
-num_epoch=1
+num_epoch=3
 lr=0.001
 
 alpha = 0.3
 num_data = 80000
-batch_size = 1
+batch_size = 100
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
