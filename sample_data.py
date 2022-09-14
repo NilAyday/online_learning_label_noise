@@ -17,20 +17,20 @@ indices_test = [i for i in range(len(ds_test))]
 random.shuffle(indices_test)
 #indices_train = [i for i in range(len(ds_train))]
 #random.shuffle(indices_train)
-batch_size=32
+batch_size=1
 
 num_data=len(ds_train.targets)
-num_data=10000
+num_data=1000
 #dataset_train = torch.utils.data.Subset(ds_train, indices_train[:])
 dataset_train = perturbed_dataloader.PerturbedDataset(ds_train, 0.3, size = num_data,num_classes = 3,enforce_false = False)
 dataloader_train = torch.utils.data.DataLoader(dataset_train, batch_size=batch_size, shuffle=True)
 
-dataset_test = torch.utils.data.Subset(ds_test, indices_test[:2000])
+dataset_test = torch.utils.data.Subset(ds_test, indices_test[:200])
 dataloader_test = torch.utils.data.DataLoader(dataset_test, batch_size=batch_size, shuffle=False)
 
 dl_batch=[dataloader_train,dataloader_test]
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_CIFAR10.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_single_CIFAR10.pickle')
 with open(file, 'wb') as handle:
     pickle.dump(dl_batch, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
