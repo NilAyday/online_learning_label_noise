@@ -7,7 +7,7 @@ import torch
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/regular.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/online_a.pickle')
 with open(file, 'rb') as handle:
     s = pickle.load(handle)
 
@@ -23,7 +23,7 @@ plt.plot(x, np.ones(len(s['train_acc']))-s['true_train_acc'], label="Train Error
 plt.plot(x, np.ones(len(s['val_acc']))-s['val_acc'], label="Test Error",color="g")
 
 plt.ylabel("Classification error")
-plt.xlabel("Number of Epochs")
+plt.xlabel("Number of Samples")
 plt.legend()
 file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/regular')
 plt.savefig(file+".png")
