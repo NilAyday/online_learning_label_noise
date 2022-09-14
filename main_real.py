@@ -89,7 +89,7 @@ def initialize_weights(m):
         nn.init.normal_(m.weight.data)
         nn.init.constant_(m.bias.data, 0)
 
-num_epoch=1
+num_epoch=100
 lr=0.01
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -108,6 +108,6 @@ with open(file, 'rb') as handle:
 
 history=training_online.train(model, optimizer, loss, dataloader_train, dataloader_test, num_epoch, device=device)
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/online_single.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/online_100_single.pickle')
 with open(file, 'wb') as handle:
     pickle.dump(history, handle, protocol=pickle.HIGHEST_PROTOCOL)
