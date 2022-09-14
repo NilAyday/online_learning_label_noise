@@ -99,7 +99,7 @@ model=  ResNet(ResidualBlock, [2, 2, 2]).to(device)
 optimizer = torch.optim.SGD(model.parameters(), lr = lr)
 loss = torch.nn.CrossEntropyLoss()
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_CIFAR10.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_single_CIFAR10.pickle')
 with open(file, 'rb') as handle:
     [dataloader_train,dataloader_test] = pickle.load(handle)
 
@@ -108,6 +108,6 @@ with open(file, 'rb') as handle:
 
 history=training.train(model, optimizer, loss, dataloader_train, dataloader_test, num_epoch, device=device)
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/regular_batch.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/regular_single.pickle')
 with open(file, 'wb') as handle:
     pickle.dump(history, handle, protocol=pickle.HIGHEST_PROTOCOL)
