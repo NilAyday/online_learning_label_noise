@@ -89,7 +89,7 @@ def initialize_weights(m):
         nn.init.normal_(m.weight.data)
         nn.init.constant_(m.bias.data, 0)
 
-num_epoch=100
+num_epoch=1
 lr=0.001
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -99,14 +99,14 @@ model=  ResNet(ResidualBlock, [2, 2, 2]).to(device)
 optimizer = torch.optim.SGD(model.parameters(), lr = lr)
 loss = torch.nn.CrossEntropyLoss()
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_single_CIFAR10.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_CIFAR10.pickle')
 with open(file, 'rb') as handle:
     [dataloader_train,dataloader_test] = pickle.load(handle)
 
 
 
 
-history=training.train(model, optimizer, loss, dataloader_train, dataloader_test, num_epoch, device=device)
+history=training_online.train(model, optimizer, loss, dataloader_train, dataloader_test, num_epoch, device=device)
 
 file= os.path.join(os.path.join(os.path.dirname(__file__)), './data_real/online_100_single.pickle')
 with open(file, 'wb') as handle:
