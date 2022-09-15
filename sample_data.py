@@ -15,12 +15,11 @@ ds_test=subloader.SubLoader(exclude_list=[2,3,4,5,6,7,8,9,10],root="./datasets",
 
 indices_test = [i for i in range(len(ds_test))]
 random.shuffle(indices_test)
-indices_train = [i for i in range(len(ds_train))]
-random.shuffle(indices_train)
+
 batch_size=1
 
 num_data=len(ds_train.targets)
-num_data=1000
+#num_data=1000
 #dataset_train = torch.utils.data.Subset(ds_train, indices_train[:])
 dataset_train = perturbed_dataloader.PerturbedDataset(ds_train, 0.3, size = num_data,num_classes = 2,enforce_false = False)
 dataloader_train = torch.utils.data.DataLoader(dataset_train, batch_size=batch_size, shuffle=True)
