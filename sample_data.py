@@ -20,7 +20,7 @@ batch_size=1
 
 num_data=len(ds_train.targets)
 print(num_data)
-print(np.count_nonzero(ds_train.targets)))
+print(np.count_nonzero(ds_train.targets))
 print(np.count_nonzero(ds_train.targets==1))
 #dataset_train = torch.utils.data.Subset(ds_train, indices_train[:])
 dataset_train = perturbed_dataloader.PerturbedDataset(ds_train, 0.3, size = num_data,num_classes = 2,enforce_false = False)
