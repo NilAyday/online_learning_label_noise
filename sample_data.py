@@ -7,6 +7,7 @@ import pickle
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Takes the classes 0 airplane, 1 automobile and 8 ship
 ds_train=subloader.SubLoader(include_list=[0,1,2],root="./datasets", train=True, download=True, transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor()]))
