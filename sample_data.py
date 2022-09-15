@@ -17,7 +17,7 @@ ds_test=subloader.SubLoader(include_list=[0,1],num_data=60 ,root="./datasets", t
 indices_test = [i for i in range(len(ds_test))]
 random.shuffle(indices_test)
 
-batch_size=30
+batch_size=1
 
 num_data=len(ds_train.targets)
 print(num_data)
@@ -32,7 +32,7 @@ dataloader_test = torch.utils.data.DataLoader(ds_test, batch_size=batch_size, sh
 
 dl_batch=[dataloader_train,dataloader_test]
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_CIFAR10.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_single_CIFAR10.pickle')
 with open(file, 'wb') as handle:
     pickle.dump(dl_batch, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
