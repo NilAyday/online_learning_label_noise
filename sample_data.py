@@ -24,7 +24,7 @@ print(num_data)
 print(np.count_nonzero(ds_train.targets))
 print(np.count_nonzero(ds_train.targets==1))
 #dataset_train = torch.utils.data.Subset(ds_train, indices_train[:])
-dataset_train = perturbed_dataloader.PerturbedDataset(ds_train, 0.3, size = num_data,num_classes = 3,enforce_false = False)
+dataset_train = perturbed_dataloader.PerturbedDataset(ds_train, 0.3, size = num_data,num_classes = 2,enforce_false = False)
 dataloader_train = torch.utils.data.DataLoader(dataset_train, batch_size=batch_size, shuffle=True)
 
 #dataset_test = torch.utils.data.Subset(ds_test, indices_test[:200])
@@ -32,7 +32,7 @@ dataloader_test = torch.utils.data.DataLoader(ds_test, batch_size=batch_size, sh
 
 dl_batch=[dataloader_train,dataloader_test]
 
-file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_single_CIFAR10.pickle')
+file= os.path.join(os.path.join(os.path.dirname(__file__)), './data/dataloader_CIFAR10.pickle')
 with open(file, 'wb') as handle:
     pickle.dump(dl_batch, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
