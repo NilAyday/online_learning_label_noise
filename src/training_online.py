@@ -46,6 +46,7 @@ def train(model, optimizer, loss_fn, train_dl, val_dl, epochs=100, device='cpu',
             print(yhat)
             print(y)
             y_true = batch[2].to(device)
+            print(y_true)
             
             '''
             if len(batch)==3:
