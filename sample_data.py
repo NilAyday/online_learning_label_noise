@@ -17,7 +17,7 @@ ds_test=subloader.SubLoader(include_list=[0,1],num_data=60 ,root="./datasets", t
 indices_test = [i for i in range(len(ds_test))]
 random.shuffle(indices_test)
 
-batch_size=1
+batch_size=30
 
 num_data=len(ds_train.targets)
 print(num_data)
