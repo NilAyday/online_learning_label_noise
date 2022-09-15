@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Takes the classes 0 airplane, 1 automobile and 8 ship
-ds_train=subloader.SubLoader(include_list=[0,1,2],num_data=300,root="./datasets", train=True, download=True, transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor()]))
-ds_test=subloader.SubLoader(include_list=[0,1,2],num_data=60 ,root="./datasets", train=False, download=True, transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor()]))
+ds_train=subloader.SubLoader(include_list=[0,1],num_data=300,root="./datasets", train=True, download=True, transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor()]))
+ds_test=subloader.SubLoader(include_list=[0,1],num_data=60 ,root="./datasets", train=False, download=True, transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor()]))
 
 
 indices_test = [i for i in range(len(ds_test))]
